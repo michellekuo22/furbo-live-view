@@ -231,7 +231,7 @@ class Component extends DCLogic {
       const on = s.dir === d;
       return {
         [d + 'Hit']: `position:absolute;left:${(tx - 32).toFixed(1)}px;top:${(ty - 32).toFixed(1)}px;width:64px;height:64px;display:flex;align-items:center;justify-content:center;cursor:pointer;touch-action:none;-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none;user-select:none;-webkit-user-select:none;opacity:${s.hidden ? 0 : 1};pointer-events:${s.hidden ? 'none' : 'auto'};transition:opacity .25s ease-out`,
-        [d + 'Idle']: `width:25px;height:auto;display:block;pointer-events:none;transform:rotate(${ROT[d]}deg);opacity:${on ? 0 : op(d)};transition:opacity .12s ease-out`,
+        [d + 'Idle']: `width:25px;height:auto;display:block;pointer-events:none;transform:rotate(${ROT[d]}deg);filter:drop-shadow(0 1px 2px rgba(0,0,0,.32)) drop-shadow(0 2px 5px rgba(0,0,0,.2));opacity:${on ? 0 : op(d)};transition:opacity .12s ease-out`,
         [d + 'Plate']: `position:absolute;left:${(cx - 100).toFixed(1)}px;top:${(cy - 195).toFixed(1)}px;width:200px;height:390px;max-width:none;transform:rotate(${ROT[d]}deg);opacity:${on && !s.hidden ? (this.atLimit(d) ? 0.55 : 1) : 0};transition:opacity .12s ease-out;pointer-events:none`,
       };
     };
