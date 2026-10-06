@@ -118,7 +118,7 @@
   </sc-if>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;panSpeed&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:8,&quot;min&quot;:1,&quot;max&quot;:10,&quot;step&quot;:1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Camera&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;panSpeed&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:7,&quot;min&quot;:1,&quot;max&quot;:10,&quot;step&quot;:1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Camera&quot;}}">
 class Component extends DCLogic {
   state = { zoom: 1, zx: 0, zy: 0, recording: false, recStart: 0, music: false, talking: false, treatBusy: false, toastMsg: "", hidden: false, pan: 0, tilt: 0, dir: null, toast: false, now: new Date(), vw: window.innerWidth, vh: window.innerHeight, page: "home", camOn: true, muted: true };
   DIRS = { up: [0, 1], down: [0, -1], left: [-1, 0], right: [1, 0] };
@@ -146,7 +146,7 @@ class Component extends DCLogic {
   tick = t => {
     const dir = this.state.dir; if (!dir) return;
     const dt = Math.min(50, t - this.last) / 1000; this.last = t;
-    const speed = (this.props.panSpeed ?? 8) * 0.045;
+    const speed = (this.props.panSpeed ?? 7) * 0.045;
     const [dx, dy] = this.DIRS[dir];
     const wasLimit = this.atLimit(dir);
     const pan = Math.max(-1, Math.min(1, this.state.pan + dx * speed * dt));
