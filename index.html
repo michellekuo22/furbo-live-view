@@ -115,7 +115,7 @@ class Component extends DCLogic {
   tick = t => {
     const dir = this.state.dir; if (!dir) return;
     const dt = Math.min(50, t - this.last) / 1000; this.last = t;
-    const speed = (this.props.panSpeed ?? 5) * 0.08;
+    const speed = (this.props.panSpeed ?? 5) * 0.16;
     const [dx, dy] = this.DIRS[dir];
     const wasLimit = this.atLimit(dir);
     const pan = Math.max(-1, Math.min(1, this.state.pan + dx * speed * dt));
